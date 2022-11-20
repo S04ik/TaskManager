@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main'
+    'main',
+    "djoser"
 ]
 
 MIDDLEWARE = [
@@ -122,3 +123,28 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+SIMPLE_JWT = {
+    "AUTH_HEADER_TYPES": ("Bearer",),
+}
+
+
+DJOSER = {
+    "USER_CREATE_PASSWORD_RETYPE" : True,
+    "SEND_ACTIVATION_EMAIL": True,
+    "SET_PASSWORD_RETYPE": True,
+    "PASSWORD_RESET_CONFIRM_RETYPE":True,
+    "TOKEN_MODEL": None,
+    "ACTIVATION_URL": "auth/verify/{uid}/{token}/",
+}
+
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.mail.ru"
+EMAIL_PORT = 465
+EMAIL_HOST_USER = "sachishin.so4@mail.ru"
+EMAIL_HOST_PASSWORD = "1984qwerty!"
+EMAIL_USE_SSL = True
+DEFAULT_FROM_EMAIL = "sachishin.so4@mail.ru"
+AUTH_USER_MODEL = "main.User"

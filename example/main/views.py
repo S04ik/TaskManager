@@ -24,7 +24,11 @@ def create(request):
 
     form = TaskForm()
     context = {
-        "form":form,
+        "form": form,
         "error": error
     }
     return render(request, "main/create.html", context)
+
+
+def auth(request):
+    return render(request, "main/auth.html")
